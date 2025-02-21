@@ -13,7 +13,7 @@
     "universal-cookie": "^7.2.2",
     "web-vitals": "^4.2.4"
   },
-  "homepage": "https://mohamed-ha-zem.github.io/E-Commerse-one.git",
+"homepage": "https://mohamed-ha-zem.github.io/E-Commerse-one",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -39,5 +39,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^6.3.0"
   }
 }
