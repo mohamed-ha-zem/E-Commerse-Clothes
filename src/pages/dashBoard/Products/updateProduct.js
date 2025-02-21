@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react"
 import axios from 'axios';
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { User } from "../../website/Auth/context";
 
 
@@ -14,9 +14,18 @@ export default function UpdateProduct(){
 
     const user = useContext(User)
     const token = user.auth.token
-    const id = window.location.pathname.split("/").slice(-1)[0]
+    // const id = window.location.pathname.split("/").slice(-1)[0]
+    const params = useParams();
+    const id = params.id;
+
 
     useEffect(() => {
+
+        if (isNaN(id)) {
+            console.error("Invalid ID:", id);
+            return;
+        }
+
         fetch(`http://127.0.0.1:8000/api/product/showbyid/${id}` , {
             headers: {
                 Authorization: `Bearer ${token}`
