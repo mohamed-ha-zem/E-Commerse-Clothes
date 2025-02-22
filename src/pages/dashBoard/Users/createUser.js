@@ -63,7 +63,7 @@ export default function CreateUser(){
                 <label htmlFor="passwordR">Repeat PassWord:</label>
                 <input type="text" id="passwordR" placeholder="Repeat PassWord..." value={passwordR} onChange={(e) => setPasswordR(e.target.value)}/>
                 {passwordR !== password && accept && <p className="error">must be PassWord Repeat = password</p>}
-                <button className="button" onClick={Submit}>Register</button>
+                <button className="button" onClick={Submit}>Create User</button>
             </form>
         </div>
     )

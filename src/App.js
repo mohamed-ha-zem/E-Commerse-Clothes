@@ -20,12 +20,15 @@ function App() {
   return(
     <Routes>
       <Route path='/' element={<Header/>}/>
-      <Route path='/home' element={
-        <div>
-          <Header/>
-          <Home/>
-        </div>
-      }/>
+      <Route element={<PersistLogin/>}>
+        <Route path='/home' element={
+          <div>
+            <Header/>
+            <Home/>
+          </div>
+        }/>
+      </Route>
+
       <Route path='/about' element={
         <div>
           <Header/>
