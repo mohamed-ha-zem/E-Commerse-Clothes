@@ -35,7 +35,7 @@ export default function Products(){
         return (
             <div key={product.id} className="col-md-4 mb-4">
                 <div className="card h-100 shadow">
-                    <img src={product.image} className="card-img-top" alt={product.title} style={{ height: "200px", objectFit: "cover" }} />
+                    <img onClick={bigImage} src={product.image} className="card-img-top" alt={product.title} style={{ height: "200px", objectFit: "cover" , cursor: "pointer"}} />
                     <div className="card-body">
                         <h5 className="card-title">{product.title}</h5>
                         <p className="card-text">{product.description}</p>
@@ -52,6 +52,41 @@ export default function Products(){
             </div>
         );
     });
+    
+    function bigImage(e) {
+        const img = e.target;
+        
+        // لو الصورة مكبرة، رجّعها لحجمها الطبيعي
+        if (img.classList.contains("zoomed")) {
+            img.classList.remove("zoomed");
+            img.style.cssText = `
+            height: 200px;
+            object-fit: cover;
+            cursor: pointer;
+            `;
+        } else {
+            // احصل على حجم الشاشة
+            const screenWidth = window.innerWidth;
+            const screenHeight = window.innerHeight;
+    
+            // خلي الصورة ثابتة في المنتصف
+            img.classList.add("zoomed");
+            img.style.cssText = `
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 700px;
+                max-width: 90%;
+                max-height: 90%;
+                z-index: 1000;
+                background: rgba(0, 0, 0, 0.8);
+                padding: 10px;
+                border-radius: 10px;
+                cursor: pointer;
+            `;
+        }
+    }
     
 
     async function deleteProduct(id){

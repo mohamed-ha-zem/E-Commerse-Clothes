@@ -37,29 +37,73 @@
 
 /* //sideBar// */
 /* users */
-table{
+/* users */
+.user-table {
     border-collapse: collapse;
     width: 100%;
     table-layout: fixed;
 }
-th , 
-td{
-    margin: 20px;
+.user-table th, .user-table td {
     padding: .75rem;
     font-size: 20px;
     font-weight: 700;
     border: 1px solid #3F51B5;
     text-align: center;
 }
-table thead tr th{
+.user-table thead tr th {
     background-color: #00BCD4;
     color: white;
 }
-table tbody tr td{
+.user-table tbody tr td {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
+/* User Cards for Mobile */
+.user-cards {
+    display: none;
+    gap: 15px;
+}
+.user-card {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    border: 1px solid #3F51B5;
+}
+.user-card h3 {
+    margin-bottom: 10px;
+    color: #3F51B5;
+}
+.actions {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+.edit-icon, .delete-icon {
+    font-size: 30px;
+    cursor: pointer;
+}
+.edit-icon {
+    color: green;
+}
+.delete-icon {
+    color: red;
+}
+
+@media (max-width: 768px) {
+    .user-table {
+        display: none;
+    }
+    .user-cards {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+
 /* //users// */
 /* Products */
 .products {
@@ -95,5 +139,7 @@ table tbody tr td{
     height: 200px;
     object-fit: cover;
     border-radius: 10px 10px 0 0; /* زوايا ناعمة للصورة */
+    cursor: pointer;
 }
+
 

@@ -83,7 +83,7 @@ export default function UpdateProduct(){
                 {}
                 <label htmlFor="image">image:</label>
                 <input type="file" id="image" placeholder="Image..." onChange={(e) => setImage(e.target.files.item(0))}/>
-                <button className="button" onClick={Submit}>Update User</button>
+                <button className="button" onClick={Submit}>Update Product</button>
             </form>
         </div>
     )

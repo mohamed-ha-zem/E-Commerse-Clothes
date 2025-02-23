@@ -25,7 +25,7 @@ export default function Users(){
 
     const showData = userss.map((user , index) => {
         return (
-            <tr key={user.id}>
+            <tr key={user.id} className="table-row">
                 <td>{index + 1}</td>
                 <td>{user.name}</td>
                 <td>{user.email}</td>
@@ -60,10 +60,10 @@ export default function Users(){
 
     return (
         <div style={{padding: "20px"}}>
-            <table>
+            <table className="user-table">
                 <thead>
                     <tr>
-                        <th>id</th>
+                        <th>ID</th>
                         <th>User</th>
                         <th>Email</th>
                         <th>Action</th>
@@ -73,6 +73,20 @@ export default function Users(){
                     {showData}
                 </tbody>
             </table>
+            <div className="user-cards">
+                {userss.map((user, index) => (
+                    <div key={user.id} className="user-card">
+                        <h3>{user.name}</h3>
+                        <p>Email: {user.email}</p>
+                        <div className="actions">
+                            <Link to={`${user.id}`}>
+                                <i className="fa-solid fa-pen-to-square edit-icon"></i>
+                            </Link>
+                            <i onClick={() => deleteUser(user.id)} className="fa-solid fa-trash delete-icon"></i>
+                        </div>
+                    </div>
+                ))}
+            </div>
         </div>
     )
 }
